@@ -2,7 +2,12 @@ name: 'PR source branch validation Check'
 
 on:
   pull_request_target:
-
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+      - ready_for_review
 jobs:
   verify_branch:
     if: github.base_ref == 'master' && github.head_ref != 'release'
